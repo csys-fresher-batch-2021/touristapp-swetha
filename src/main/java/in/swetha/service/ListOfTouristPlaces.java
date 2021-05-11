@@ -13,7 +13,7 @@ public class ListOfTouristPlaces {
 	/**
 	 * Adding Places
 	 */
-	private static final List<Tourist> allTouristPlace = new ArrayList<Tourist>();
+	private static final List<Tourist> allTouristPlace = new ArrayList<>();
 	static {
 		Tourist place = new Tourist("Ooty", 35000);
 		allTouristPlace.add(place);

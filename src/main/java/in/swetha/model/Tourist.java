@@ -30,17 +30,3 @@ public class Tourist {
 
 
 
-/*
- * public class MyClass {
- * 
- * public static final int SOME_CONSTANT = 0; // Compliant - constants are not
- * checked
- * 
- * private String firstName; // Compliant
- * 
- * public String getFirstName() { return firstName; }
- * 
- * public void setFirstName(String firstName) { this.firstName = firstName; }
- * 
- * }
- */
