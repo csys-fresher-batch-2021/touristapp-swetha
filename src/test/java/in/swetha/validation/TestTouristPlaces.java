@@ -19,11 +19,5 @@ public class TestTouristPlaces {
 
 	}
 
-	@Test
-	public void test1() {
-
-		List<Tourist> Places = ListOfTouristPlaces.getTouristPlaces();
-		assertEquals(4, Places.size());
-
-	}
+	
 }
