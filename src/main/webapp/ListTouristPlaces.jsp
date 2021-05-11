@@ -14,11 +14,12 @@
 	<main class="container-fluid">
 		<h3>Tourist Package</h3>
 		<table class="table table-bordered">
+		<caption>*Package include Room</caption>
 			<thead>
 				<tr>
-					<td>S.No</td>
-					<td>Places</td>
-					<td>Price(Rs)</td>
+					<th>S.No</th>
+					<th>Places</th>
+					<th>Price(Rs)</th>
 			</thead>
 			<tbody>
 				<%
@@ -29,8 +30,8 @@
 				%>
 				<tr>
 					<td><%=i%></td>
-					<td><%=touristPlaces.touristPlace%></td>
-					<td>Rs.<%=touristPlaces.Amount%></td>
+					<td><%=touristPlaces.getTouristPlace()%></td>
+					<td>Rs.<%=touristPlaces.getAmount()%></td>
 				</tr>
 				<%
 				}
