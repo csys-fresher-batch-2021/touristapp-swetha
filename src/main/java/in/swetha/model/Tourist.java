@@ -2,11 +2,11 @@ package in.swetha.model;
 
 public class Tourist {
 	private String touristPlace;
-	private Integer Amount;
+	private Integer amount;
 	public Tourist(String touristplace, Integer amount) {
 	
 		this.touristPlace = touristplace;
-		this.Amount = amount;
+		this.amount = amount;
 	}
 	public String getTouristPlace() {
 		return touristPlace;
@@ -15,14 +15,14 @@ public class Tourist {
 		this.touristPlace = touristPlace;
 	}
 	public Integer getAmount() {
-		return Amount;
+		return amount;
 	}
 	public void setAmount(Integer amount) {
-		Amount = amount;
+		this.amount = amount;
 	}
 	@Override
 	public String toString() {
-		return "Tourist [touristPlace=" + touristPlace + ", Amount=" + Amount + "]";
+		return "Tourist [touristPlace=" + touristPlace + ", Amount=" + amount + "]";
 	}
 	
 
