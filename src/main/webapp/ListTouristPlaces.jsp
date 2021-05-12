@@ -17,13 +17,13 @@
 		<caption>*Package include Room</caption>
 			<thead>
 				<tr>
-					<th>S.No</th>
-					<th>Places</th>
-					<th>Price(Rs)</th>
+					<th scope="col">S.No</th>
+					<th scope="col">Places</th>
+					<th scope="col">Price(Rs)</th>
 			</thead>
 			<tbody>
 				<%
-				List<Tourist> tourist = ListOfTouristPlaces.getTouristPlaces();
+				List<Tourist> tourist =ListOfTouristPlaces.getTouristPlaces();
 				int i = 0;
 				for (Tourist touristPlaces : tourist) {
 					i++;
