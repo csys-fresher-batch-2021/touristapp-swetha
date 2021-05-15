@@ -48,13 +48,8 @@ public class ListOfTouristPlaces {
 				isAdded = true;
 			}
 
-		if (isAdded == true) {
-			System.out.println("already exit");
-		} else {
-
-			allTouristPlace.add(new Tourist(touristArea, rate));
-
-		}
+		if (!isAdded) {allTouristPlace.add(new Tourist(touristArea, rate));
+		} 
 		return isAdded;
 
 	}

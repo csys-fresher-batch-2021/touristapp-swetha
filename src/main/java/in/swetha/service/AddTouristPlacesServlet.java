@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import in.swetha.model.Tourist;
-
 /**
  * Servlet implementation class AddTouristPlacesServlet
  */
@@ -22,16 +20,16 @@ public class AddTouristPlacesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-
-		String TouristPlace = request.getParameter("TouristPlace");
-		out.println(TouristPlace);
+		String touristPlace = request.getParameter("TouristPlace");
+		out.println(touristPlace);
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
 		out.println(packageAmount);
 		try {
-			boolean isAdded = ListOfTouristPlaces.addTouristPlace(TouristPlace, packageAmount);
+			boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
 			if (isAdded)
 
 			{
