@@ -6,10 +6,11 @@ import java.util.List;
 import in.swetha.model.Tourist;
 
 public class ListOfTouristPlaces {
-	private ListOfTouristPlaces(){
-		//Default Constructor
-	
+	private ListOfTouristPlaces() {
+		// Default Constructor
+
 	}
+
 	/**
 	 * Adding Places
 	 */
@@ -27,14 +28,35 @@ public class ListOfTouristPlaces {
 		allTouristPlace.add(place4);
 
 	}
-/**
- * Get Places
- * @return
- */
+
+	/**
+	 * Get Places
+	 * 
+	 * @return
+	 */
 	public static List<Tourist> getTouristPlaces() {
 
 		return allTouristPlace;
 
 	}
-	
+
+	public static boolean addTouristPlace(String touristArea, Integer rate) {
+		boolean isAdded = false;
+		for (Tourist places : allTouristPlace)
+			if (places.getTouristPlace().equalsIgnoreCase(touristArea)) {
+
+				isAdded = true;
+			}
+
+		if (isAdded == true) {
+			System.out.println("already exit");
+		} else {
+
+			allTouristPlace.add(new Tourist(touristArea, rate));
+
+		}
+		return isAdded;
+
+	}
+
 }
