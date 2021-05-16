@@ -28,20 +28,15 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		out.println(touristPlace);
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
 		out.println(packageAmount);
-		try {
-			boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
-			if (isAdded)
+		boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
+		if (isAdded)
 
-			{
-				response.sendRedirect("ListTouristPlaces.jsp");
-			} else {
-				String errorMessage = "Unable to add places";
-				response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + errorMessage);
-			}
-		} catch (RuntimeException e) {
-			String errorMessage = e.getMessage();
-			response.sendRedirect("addTouristPlace.jsp?errorMessage:" + errorMessage);
-			e.printStackTrace();
+		{
+			response.sendRedirect("ListTouristPlaces.jsp");
+		} else {
+			String errorMessage = "Unable to add places";
+			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + errorMessage);
 		}
+
 	}
 }
