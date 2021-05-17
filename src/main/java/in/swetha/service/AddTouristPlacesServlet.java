@@ -40,7 +40,7 @@ public class AddTouristPlacesServlet extends HttpServlet {
 			} 
 				
 				 
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + e.getMessage());
 			logger.info(e.getMessage());
 		}

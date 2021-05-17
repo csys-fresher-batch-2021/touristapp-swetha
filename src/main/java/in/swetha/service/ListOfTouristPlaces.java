@@ -40,12 +40,12 @@ public class ListOfTouristPlaces {
 
 	}
 
-	public static boolean addTouristPlace(String touristArea, Integer rate){
+	public static boolean addTouristPlace(String touristArea, Integer rate) throws Exception{
 		boolean isAdded = false;
 		for (Tourist places : allTouristPlace)
 			if (places.getTouristPlace().equalsIgnoreCase(touristArea)) {
 				isAdded=true;
-				throw new RuntimeException("Place Is Already Exits");
+				throw new Exception("Place Is Already Exits");
 			}
 
 		if (!isAdded) {
