@@ -43,13 +43,15 @@ public class ListOfTouristPlaces {
 	public static boolean addTouristPlace(String touristArea, Integer rate) {
 		boolean isAdded = false;
 		for (Tourist places : allTouristPlace)
-			if (places.getTouristPlace().equalsIgnoreCase(touristArea)&&places!=null) {
-
+			if (places.getTouristPlace().equalsIgnoreCase(touristArea)) {
 				isAdded = true;
 			}
 
-		if (!isAdded) {allTouristPlace.add(new Tourist(touristArea, rate));
-		} 
+		if (!isAdded) {
+			allTouristPlace.add(new Tourist(touristArea, rate));
+			
+		}
+
 		return isAdded;
 
 	}

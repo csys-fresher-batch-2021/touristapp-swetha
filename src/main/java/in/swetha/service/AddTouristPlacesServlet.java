@@ -29,13 +29,13 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
 		out.println(packageAmount);
 		boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
-		if (isAdded)
+		if (!isAdded)
 
 		{
 			response.sendRedirect("ListTouristPlaces.jsp");
 		} else {
-			String errorMessage = "Unable to add places";
-			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + errorMessage);
+			String errorMessage = "Unable to add place is Already Exit";
+			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + errorMessage);
 		}
 
 	}
