@@ -2,6 +2,7 @@ package in.swetha.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/AddTouristPlacesServlet")
 public class AddTouristPlacesServlet extends HttpServlet {
+	private static final Logger Loggers = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,15 +30,22 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		out.println(touristPlace);
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
 		out.println(packageAmount);
-		boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
-		if (!isAdded)
+		try {
+			boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
 
-		{
-			response.sendRedirect("ListTouristPlaces.jsp");
-		} else {
-			String errorMessage = "Unable to add place is Already Exit";
-			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + errorMessage);
+			if (isAdded)
+
+			{
+				response.sendRedirect("ListTouristPlaces.jsp");
+			} else {
+				String errorMessage = "already exists";
+				response.sendRedirect("addTouristPlace.jsp?errorMessage=" + errorMessage);
+			}
+
+		} catch (RuntimeException e) {
+			e.printStackTrace();
+			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
+			Loggers.info(e.getMessage());
 		}
-
 	}
 }
