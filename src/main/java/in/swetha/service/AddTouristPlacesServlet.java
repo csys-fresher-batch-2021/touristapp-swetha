@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet("/AddTouristPlacesServlet")
 public class AddTouristPlacesServlet extends HttpServlet {
-	private static final Logger Loggers = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -43,9 +43,8 @@ public class AddTouristPlacesServlet extends HttpServlet {
 			}
 
 		} catch (RuntimeException e) {
-			e.printStackTrace();
 			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
-			Loggers.info(e.getMessage());
+			logger.info(e.getMessage());
 		}
 	}
 }
