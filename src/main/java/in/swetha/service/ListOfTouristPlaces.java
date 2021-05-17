@@ -44,12 +44,14 @@ public class ListOfTouristPlaces {
 		boolean isAdded = false;
 		for (Tourist places : allTouristPlace)
 			if (places.getTouristPlace().equalsIgnoreCase(touristArea)) {
+				isAdded=true;
 				throw new RuntimeException("Place Is Already Exits");
 			}
 
 		if (!isAdded) {
+			
 			allTouristPlace.add(new Tourist(touristArea, rate));
-			isAdded = true;
+			
 		}
 		return isAdded;
 

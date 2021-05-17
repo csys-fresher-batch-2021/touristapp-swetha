@@ -33,17 +33,15 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		try {
 			boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
 
-			if (isAdded)
+			if (!isAdded)
 
 			{
 				response.sendRedirect("ListTouristPlaces.jsp");
-			} else {
-				String errorMessage = "already exists";
-				response.sendRedirect("addTouristPlace.jsp?errorMessage=" + errorMessage);
-			}
-
+			} 
+				
+				 
 		} catch (RuntimeException e) {
-			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + e.getMessage());
 			logger.info(e.getMessage());
 		}
 	}
