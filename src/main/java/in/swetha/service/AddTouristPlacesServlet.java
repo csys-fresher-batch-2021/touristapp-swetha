@@ -31,16 +31,14 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
 		out.println(packageAmount);
 		try {
-			boolean isAdded = ListOfTouristPlaces.addTouristPlace(touristPlace, packageAmount);
+			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount);
 
 			if (!isAdded)
 
 			{
 				response.sendRedirect("ListTouristPlaces.jsp");
 			} 
-				
-				 
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + e.getMessage());
 			logger.info(e.getMessage());
 		}

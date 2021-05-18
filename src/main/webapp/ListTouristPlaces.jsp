@@ -1,4 +1,4 @@
-<%@page import="in.swetha.service.ListOfTouristPlaces"%>
+<%@page import="in.swetha.service.TouristPlaceService"%>
 <%@page import="in.swetha.model.Tourist"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -24,10 +24,10 @@
 			</thead>
 			<tbody>
 				<%
-				List<Tourist> tourist = ListOfTouristPlaces.getTouristPlaces();
-				int i = 0;
-				for (Tourist touristPlaces : tourist) {
-					i++;
+				List<Tourist> tourist = TouristPlaceService.getTouristPlaces();
+						int i = 0;
+						for (Tourist touristPlaces : tourist) {
+							i++;
 				%>
 				<tr>
 					<td><%=i%></td>
