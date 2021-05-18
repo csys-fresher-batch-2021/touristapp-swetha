@@ -7,14 +7,14 @@ import java.util.List;
 import org.junit.Test;
 
 import in.swetha.model.Tourist;
-import in.swetha.service.ListOfTouristPlaces;
+import in.swetha.service.TouristPlaceService;
 
 public class TestTouristPlaces {
 
 	@Test
 	public void test() {
 
-		List<Tourist> Places = ListOfTouristPlaces.getTouristPlaces();
+		List<Tourist> Places = TouristPlaceService.getTouristPlaces();
 		assertEquals(5, Places.size());
 
 	}

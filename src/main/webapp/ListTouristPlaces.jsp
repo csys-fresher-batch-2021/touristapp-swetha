@@ -1,10 +1,11 @@
-<%@page import="in.swetha.service.ListOfTouristPlaces"%>
+<%@page import="in.swetha.service.TouristPlaceService"%>
 <%@page import="in.swetha.model.Tourist"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">>
+<html lang="en" xml:lang="en">
+>
 <head>
 <meta charset="ISO-8859-1">
 <title>TouristApp</title>
@@ -14,7 +15,7 @@
 	<main class="container-fluid">
 		<h3>Tourist Package</h3>
 		<table class="table table-bordered">
-		<caption>*Package include Room</caption>
+			<caption>*Package include Room</caption>
 			<thead>
 				<tr>
 					<th scope="col">S.No</th>
@@ -23,10 +24,10 @@
 			</thead>
 			<tbody>
 				<%
-				List<Tourist> tourist =ListOfTouristPlaces.getTouristPlaces();
-				int i = 0;
-				for (Tourist touristPlaces : tourist) {
-					i++;
+				List<Tourist> tourist = TouristPlaceService.getTouristPlaces();
+						int i = 0;
+						for (Tourist touristPlaces : tourist) {
+							i++;
 				%>
 				<tr>
 					<td><%=i%></td>
@@ -38,6 +39,7 @@
 				%>
 			</tbody>
 		</table>
+		<a href="addTouristPlace.jsp">Add Place</a>
 	</main>
 </body>
 </html>
