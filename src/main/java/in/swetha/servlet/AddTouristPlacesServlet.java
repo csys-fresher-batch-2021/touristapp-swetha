@@ -1,14 +1,14 @@
-package in.swetha.service;
+package in.swetha.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.logging.Logger;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import in.swetha.service.TouristPlaceService;
 
 /**
  * Servlet implementation class AddTouristPlacesServlet
@@ -25,11 +25,9 @@ public class AddTouristPlacesServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
+		
 		String touristPlace = request.getParameter("TouristPlace");
-		out.println(touristPlace);
 		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
-		out.println(packageAmount);
 		try {
 			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount);
 
@@ -38,8 +36,13 @@ public class AddTouristPlacesServlet extends HttpServlet {
 			{
 				response.sendRedirect("ListTouristPlaces.jsp");
 			} 
-		} catch (RuntimeException e) {
-			response.sendRedirect("ListTouristPlaces.jsp?errorMessage=" + e.getMessage());
+			else {
+				String errorMessage="Invalid Place";
+				response.sendRedirect("addTouristPlace,jsp?errorMessage="+errorMessage);
+			}
+		}
+		catch (RuntimeException e) {
+			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
 			logger.info(e.getMessage());
 		}
 	}
