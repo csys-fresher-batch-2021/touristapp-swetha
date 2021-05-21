@@ -5,7 +5,6 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
->
 <head>
 <meta charset="ISO-8859-1">
 <title>TouristApp</title>
@@ -42,7 +41,6 @@
 				%> 
 			</tbody>
 		</table>
-		<button type="button" class="btn btn-info">Book Package</button><br/><br/>
 			</main>
 </body><a href="addTouristPlace.jsp">Add Place</a>
 </html>
