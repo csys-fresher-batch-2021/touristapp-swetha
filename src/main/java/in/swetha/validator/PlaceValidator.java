@@ -9,7 +9,7 @@ public class PlaceValidator {
 	{
 		//default constructor
 	}
-	public static boolean TouristPlaceValidator(String place, String errorMessage) 
+	public static boolean touristPlaceValidator(String place, String errorMessage) 
 			throws IsValidPlaceException
 	{
 		if(place==null||place.trim().length()<=3)

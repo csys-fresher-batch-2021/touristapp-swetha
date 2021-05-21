@@ -25,11 +25,8 @@ public class DeleteTouristPlaceServlet extends HttpServlet {
 	
 			String touristPlace=request.getParameter("touristPlace");
 			TouristPlaceService.deleteTouristPlace(touristPlace);
-			
-			
-			{
-				response.sendRedirect("ListTouristPlaces.jsp");
+			response.sendRedirect("ListTouristPlaces.jsp");
 			}
 		
 }
-}
+

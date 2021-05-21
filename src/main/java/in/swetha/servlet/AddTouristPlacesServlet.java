@@ -32,7 +32,7 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		Double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
 		try {
 			
-			PlaceValidator.TouristPlaceValidator(touristPlace, "Invalid Input To Insert Place");
+			PlaceValidator.touristPlaceValidator(touristPlace, "Invalid Input To Insert Place");
 			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount);
 
 			if (!isAdded)
