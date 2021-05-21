@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import in.swetha.service.TouristPlaceService;
+import in.swetha.validator.PlaceValidator;
 
 /**
  * Servlet implementation class AddTouristPlacesServlet
@@ -23,12 +25,14 @@ public class AddTouristPlacesServlet extends HttpServlet {
 	 *      response)
 	 */
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		String touristPlace = request.getParameter("TouristPlace");
-		Integer packageAmount = Integer.parseInt(request.getParameter("PackageAmount"));
+		Double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
 		try {
+			
+			PlaceValidator.TouristPlaceValidator(touristPlace, "Invalid Input To Insert Place");
 			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount);
 
 			if (!isAdded)
@@ -41,9 +45,9 @@ public class AddTouristPlacesServlet extends HttpServlet {
 				response.sendRedirect("addTouristPlace,jsp?errorMessage="+errorMessage);
 			}
 		}
-		catch (RuntimeException e) {
+		
+			 catch (Exception e) {
 			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
-			logger.info(e.getMessage());
-		}
+			logger.info(e.getMessage());		}
 	}
 }
