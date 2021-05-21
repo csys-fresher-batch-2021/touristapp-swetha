@@ -16,7 +16,8 @@
 				<li class="nav-item active"><a class="nav-link"
 					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link"
-					href="ListTouristPlaces.jsp">List Of Places</a>
+					href="ListTouristPlaces.jsp">List Of Places</a></li>
+
 				<li><a class="nav-link" href="addTouristPlace.jsp">Add
 						Tourist Place</a></li>
 				<li class="nav-item dropdown"><a
@@ -28,10 +29,11 @@
 					</div></li>
 			</ul>
 			<ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link" href="#">Login</a>
-				</li>
+				<li class="nav-item active"><a class="nav-link"
+					href="Login.jsp">Login</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Register</a>
 				</li>
+
 			</ul>
 
 		</div>

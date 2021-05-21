@@ -13,7 +13,7 @@
 		<h3>AdminLogin</h3>
 		
 		
-		<form action=AdminLoginServlet method="post">
+		<form action=AdminLoginServlet method="get">
 			<label for="name">AdminName:</label> <input type="text"
 				name="adminname" id="adminname" autofocus required><br>
 			<label for="name"> AdminPassword:</label> <input type="password"
