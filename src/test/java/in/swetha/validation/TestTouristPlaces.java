@@ -21,26 +21,20 @@ public class TestTouristPlaces {
 	}
 
 	@Test
-	public void test1() {
+	public void test1() throws IsValidPlaceException {
 
-		try {
-			TouristPlaceService.addTouristPlace("oo", 35000.0);
-		} catch (IsValidPlaceException e) {
+		boolean valid = TouristPlaceService.addTouristPlace("oo", 35000.0);
 
-			e.printStackTrace();
-		}
+		assertFalse(valid);
+
 	}
 
 	@Test
-	public void test2() {
+	public void test2() throws IsValidPlaceException {
 
-		try {
-		TouristPlaceService.addTouristPlace("", 90.0);
-		} catch (IsValidPlaceException e) {
+		boolean valid = TouristPlaceService.addTouristPlace("", 90.0);
 
-			e.printStackTrace();
-		}
-
+		assertFalse(valid);
 	}
 
 }
