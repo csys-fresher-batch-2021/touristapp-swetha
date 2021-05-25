@@ -2,12 +2,12 @@ package in.swetha.model;
 
 public class Tourist {
 	private String touristPlace;
-	private Integer amount;
+	private Double amount;
 
-	public Tourist(String touristplace, Integer amount) {
+	public Tourist(String touristplace, Double rate) {
 
 		this.touristPlace = touristplace;
-		this.amount = amount;
+		this.amount = rate;
 	}
 
 	public String getTouristPlace() {
@@ -18,11 +18,11 @@ public class Tourist {
 		this.touristPlace = touristPlace;
 	}
 
-	public Integer getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 

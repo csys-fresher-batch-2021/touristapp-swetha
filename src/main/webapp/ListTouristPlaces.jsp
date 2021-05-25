@@ -5,7 +5,6 @@
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
->
 <head>
 <meta charset="ISO-8859-1">
 <title>TouristApp</title>
@@ -21,6 +20,7 @@
 					<th scope="col">S.No</th>
 					<th scope="col">Places</th>
 					<th scope="col">Price(Rs)</th>
+					<th scope="col">Option</th>
 			</thead>
 			<tbody>
 				<%
@@ -33,13 +33,14 @@
 					<td><%=i%></td>
 					<td><%=touristPlaces.getTouristPlace()%></td>
 					<td>Rs.<%=touristPlaces.getAmount()%></td>
+					<td><a href="DeleteTouristPlaceServlet?TouristPlace=<%=touristPlaces.getTouristPlace()%>" 
+					class="btn btn-danger">Delete</a>
 				</tr>
 				<%
 				}
-				%>
+				%> 
 			</tbody>
 		</table>
-		<a href="addTouristPlace.jsp">Add Place</a>
-	</main>
-</body>
+			</main>
+</body><a href="addTouristPlace.jsp">Add Place</a>
 </html>
