@@ -23,10 +23,13 @@ public class DeleteTouristPlaceServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-			String touristPlace=request.getParameter("touristPlace");
-			TouristPlaceService.deleteTouristPlace(touristPlace);
-			response.sendRedirect("ListTouristPlaces.jsp");
-			}
-		
+		String touristPlace=request.getParameter("touristPlace");
+		TouristPlaceService.deleteTouristPlace(touristPlace);
+		response.sendRedirect("ListTouristPlaces.jsp");
+	}
 }
+
+
+
+
 

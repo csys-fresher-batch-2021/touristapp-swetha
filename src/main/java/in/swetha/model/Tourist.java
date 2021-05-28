@@ -2,12 +2,28 @@ package in.swetha.model;
 
 public class Tourist {
 	private String touristPlace;
-	private Double amount;
+	private double amount;
+	private String imageURL;
 
-	public Tourist(String touristplace, Double rate) {
+	public Tourist(String touristplace, double rate) {
 
 		this.touristPlace = touristplace;
 		this.amount = rate;
+	}
+
+	public Tourist(String touristPlace, double amount, String imageURL) {
+		super();
+		this.touristPlace = touristPlace;
+		this.amount = amount;
+		this.imageURL = imageURL;
+	}
+
+	public String getImageURL() {
+		return imageURL;
+	}
+
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
 
 	public String getTouristPlace() {
@@ -18,17 +34,22 @@ public class Tourist {
 		this.touristPlace = touristPlace;
 	}
 
-	public Double getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
 	@Override
 	public String toString() {
 		return "Tourist [touristPlace=" + touristPlace + ", Amount=" + amount + "]";
+	}
+
+	public char[] toJSON() {
+		
+		return null;
 	}
 
 }
