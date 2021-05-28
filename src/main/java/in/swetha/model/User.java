@@ -2,17 +2,17 @@ package in.swetha.model;
 
 public class User {
 	private String userName;
-	private String userPassWord;
+	private String UserPassWord;
 	private long userMobileNumber;
 	public User(String userName, String userPassWord, long userMobileNumber) {
 		super();
 		this.userName = userName;
-		this.userPassWord = userPassWord;
+		this.UserPassWord = userPassWord;
 		this.userMobileNumber = userMobileNumber;
 	}
 	public User(String userName, String userPassWord) {
 		this.userName = userName;
-		this.userPassWord = userPassWord;
+		this.UserPassWord = userPassWord;
 	}
 	public String getUserName() {
 		return userName;
@@ -21,10 +21,10 @@ public class User {
 		this.userName = userName;
 	}
 	public String getUserPassWord() {
-		return userPassWord;
+		return UserPassWord;
 	}
 	public void setUserPassWord(String userPassWord) {
-		this.userPassWord = userPassWord;
+		this.UserPassWord = userPassWord;
 	}
 	public long getUserMobileNumber() {
 		return userMobileNumber;
@@ -34,7 +34,7 @@ public class User {
 	}
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", userPassWord=" + userPassWord + ", userMobileNumber="
+		return "User [userName=" + userName + ", UserPassWord=" + UserPassWord + ", userMobileNumber="
 				+ userMobileNumber + "]";
 	}
 }

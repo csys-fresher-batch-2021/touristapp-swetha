@@ -5,6 +5,10 @@ import java.time.LocalDate;
 import in.swetha.exception.ValidDateException;
 
 public class DateValidation {
+	private DateValidation()
+	{
+		
+	}
 	public static boolean dateValidationStart(LocalDate validateDate) throws ValidDateException
 	{
 
