@@ -2,6 +2,7 @@ package in.swetha.servlet;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.logging.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +19,7 @@ import in.swetha.validator.DateValidation;
  */
 @WebServlet("/BookingServlet")
 public class BookingServlet extends HttpServlet {
+	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -37,8 +39,8 @@ public class BookingServlet extends HttpServlet {
 		
 		} catch (ValidDateException e) {
 			response.sendRedirect("Booking.jsp?errorMessage=" + e.getMessage());
-			
-		e.printStackTrace();
+			logger.info(e.getMessage());
+		
 		}
 	
 }
