@@ -38,7 +38,7 @@ public class UserService {
 				}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 			throw new InValidDetailException("Unable To Login");
 		}
 		return validLogIn;
