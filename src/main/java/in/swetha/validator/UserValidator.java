@@ -5,6 +5,11 @@ import in.swetha.exception.InvalidPassWordException;
 import in.swetha.exception.IsValidNameException;
 
 public class UserValidator {
+	
+	public UserValidator()
+	{
+		
+	}
 	/**
 	 * 
 	 * @param name
@@ -31,7 +36,7 @@ public class UserValidator {
 
 	public static boolean isValidPassword(String password) throws InvalidPassWordException {
 		boolean valid = false;
-		if (password.length() < 7 || password.length() > 15 && password == null || password.trim().equals("")) {
+		if (password.length() < 7&& password.length() > 15 && password == null||password.trim().equals("")) {
 			throw new InvalidPassWordException("Invalid Mobile Number");
 		} else {
 			valid = true;
@@ -48,9 +53,9 @@ public class UserValidator {
 	 */
 	public static boolean isValidMobileNumber(long mobileNo) {
 		boolean validMobileNo = false;
-		String mobileNumberString = String.valueOf(mobileNo);
-		if (mobileNumberString != null && mobileNumberString.trim().length() == 10 && mobileNumberString.startsWith("9")
-				|| mobileNumberString.startsWith("8")) {
+		String mobileNumber = String.valueOf(mobileNo);
+		if (mobileNumber.trim().length() == 10 && mobileNumber.startsWith("9")
+				|| mobileNumber.startsWith("8")) {
 			validMobileNo = true;
 
 		}

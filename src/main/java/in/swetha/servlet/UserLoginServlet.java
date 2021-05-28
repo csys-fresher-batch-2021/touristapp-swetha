@@ -1,6 +1,8 @@
 package in.swetha.servlet;
 
 import java.io.IOException;
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,8 +18,9 @@ import in.swetha.service.UserService;
  */
 @WebServlet("/UserLoginServlet")
 public class UserLoginServlet extends HttpServlet {
+	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
-
+@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -39,7 +42,7 @@ public class UserLoginServlet extends HttpServlet {
 				response.sendRedirect("CustomerLogin.jsp?message=" + errorMessage);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info(e.getMessage());
 			String errorMessage = e.getMessage();
 			response.sendRedirect("CustomerLogin.jsp?errorMessage=" + errorMessage);
 		}

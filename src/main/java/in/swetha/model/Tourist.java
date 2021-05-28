@@ -47,9 +47,5 @@ public class Tourist {
 		return "Tourist [touristPlace=" + touristPlace + ", Amount=" + amount + "]";
 	}
 
-	public char[] toJSON() {
-		
-		return null;
-	}
-
+	
 }
