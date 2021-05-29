@@ -1,5 +1,6 @@
 package in.swetha.servlet;
 
+
 import java.io.IOException;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,6 +31,7 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		
 		String touristPlace = request.getParameter("TouristPlace");
 		Double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
+		
 		try {
 			
 			PlaceValidator.touristPlaceValidator(touristPlace, "Invalid Input To Insert Place");

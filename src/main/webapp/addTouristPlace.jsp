@@ -14,8 +14,22 @@
 			<label for="TouristPlace">TouristPlace:</label> <input type="text"
 				id="TouristPlace" name="TouristPlace" required /><br /> <label>PackageAmount:</label>
 			<input type="number" id="PackageAmount" name="PackageAmount"/><br />
+
 			<button class="btn btn-primary">Submit</button>
+			
 		</form>
+		<%
+          String message=request.getParameter("errorMessage");
+			if(message==null)
+			{
+				out.print("");
+			}
+			else
+			{
+				
+				out.print("<font color='red'>"+message+"</font>");
+			}
+         %>
 	
 	</main>
 </body>

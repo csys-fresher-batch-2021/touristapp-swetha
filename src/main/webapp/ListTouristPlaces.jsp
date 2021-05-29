@@ -4,7 +4,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
-<html lang="en" xml:lang="en">
+<html lang="en">
+<%
+String loggedInUsername = (String)session.getAttribute("LOGGED_IN_USER");
+%>
 <head>
 <meta charset="ISO-8859-1">
 <title>TouristApp</title>
@@ -18,9 +21,10 @@
 			<thead>
 				<tr>
 					<th scope="col">S.No</th>
+					<th scope="col">Images</th>
 					<th scope="col">Places</th>
 					<th scope="col">Price(Rs)</th>
-					<th scope="col">Option</th>
+					<th scope="col">Status</th>
 			</thead>
 			<tbody>
 				<%
@@ -31,16 +35,28 @@
 				%>
 				<tr>
 					<td><%=i%></td>
+					<td>
+					<img src="assets/img/<%=touristPlaces.getImageURL()%>" width="100" height="100">
+					
+					</td>
 					<td><%=touristPlaces.getTouristPlace()%></td>
 					<td>Rs.<%=touristPlaces.getAmount()%></td>
-					<td><a href="DeleteTouristPlaceServlet?TouristPlace=<%=touristPlaces.getTouristPlace()%>" 
+					<td><a href="Booking.jsp?TouristPlace=<%=touristPlaces.getTouristPlace()%>"
+					class="btn btn-info">Book</a>
+					<%if (loggedInUsername != null && loggedInUsername.equalsIgnoreCase("ADMIN")){%>
+					<td><a href="DeleteTouristPlaceServlet?TouristPlace=<%=touristPlaces.getTouristPlace()%>"
 					class="btn btn-danger">Delete</a>
+					<%} %>
 				</tr>
 				<%
 				}
 				%> 
 			</tbody>
 		</table>
-			</main>
-</body><a href="addTouristPlace.jsp">Add Place</a>
+		
+			</main><% 
+	if(loggedInUsername!=null&&loggedInUsername.equalsIgnoreCase("ADMIN")){	%>
+<a href="addTouristPlace.jsp">Add Place</a>	
+<%} %>		
+</body>
 </html>
