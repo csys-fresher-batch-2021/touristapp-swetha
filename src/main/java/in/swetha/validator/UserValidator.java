@@ -1,7 +1,7 @@
 package in.swetha.validator;
 
 import in.swetha.exception.InvalidPassWordException;
-
+import in.swetha.exception.IsValidMobileNumberException;
 import in.swetha.exception.IsValidNameException;
 
 public class UserValidator {
@@ -37,7 +37,7 @@ public class UserValidator {
 	public static boolean isValidPassword(String password) throws InvalidPassWordException {
 		boolean valid = false;
 		if (password.length() < 7&& password.length() > 15 &&password.trim().equals("")) {
-			throw new InvalidPassWordException("Invalid Mobile Number");
+			throw new InvalidPassWordException("Invalid Password Format");
 		} else {
 			valid = true;
 
@@ -46,19 +46,23 @@ public class UserValidator {
 	}
 
 	/**
-	 * Checking Whether Mobile Number is Valid
+	 * Checking Whether Mobile Number is Valid or Not
 	 * 
 	 * @param mobileNo
 	 * @return
+	 * @throws IsValidMobileNumberException 
 	 */
-	public static boolean isValidMobileNumber(long mobileNo) {
+	public static boolean isValidMobileNumber(long mobileNo) throws IsValidMobileNumberException {
 		boolean validMobileNo = false;
 		String mobileNumber = String.valueOf(mobileNo);
 		if (mobileNumber.trim().length() == 10 && mobileNumber.startsWith("9")
 				|| mobileNumber.startsWith("8")) {
 			validMobileNo = true;
-
+		}else
+		{
+			throw new IsValidMobileNumberException("Invalid Mobile Number");
 		}
+		
 		return validMobileNo;
 	}
 

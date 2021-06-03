@@ -47,5 +47,4 @@ public class Tourist {
 		return "Tourist [touristPlace=" + touristPlace + ", Amount=" + amount + "]";
 	}
 
-	
 }

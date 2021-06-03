@@ -14,7 +14,7 @@
 			<label for="TouristPlace">TouristPlace:</label> <input type="text"
 				id="TouristPlace" name="TouristPlace" required /><br /> <label>PackageAmount:</label>
 			<input type="number" id="PackageAmount" name="PackageAmount"/><br />
-
+			<input type="file" name="photo">
 			<button class="btn btn-primary">Submit</button>
 			
 		</form>

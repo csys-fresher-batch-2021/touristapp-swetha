@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import in.swetha.model.User;
 import in.swetha.service.UserService;
+import in.swetha.validator.UserValidator;
 
 /**
  * Servlet implementation class UserLoginServlet
@@ -20,7 +20,8 @@ import in.swetha.service.UserService;
 public class UserLoginServlet extends HttpServlet {
 	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 	private static final long serialVersionUID = 1L;
-@Override
+
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -28,10 +29,9 @@ public class UserLoginServlet extends HttpServlet {
 		String password = request.getParameter("userpassword");
 
 		try {
-
-			User user = new User(userName, password);
-
-			boolean isvalidLogin = UserService.validLogin(user);//To Login Getting name and password
+			UserValidator.isValidUserName(userName);
+			UserValidator.isValidPassword(password);
+			boolean isvalidLogin = UserService.validUserLogin(userName, password);// To Login Getting name and password
 			if (isvalidLogin) {
 				HttpSession session = request.getSession();
 				session.setAttribute("LOGGED_IN_USER", userName);
@@ -44,7 +44,7 @@ public class UserLoginServlet extends HttpServlet {
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			String errorMessage = e.getMessage();
-			response.sendRedirect("CustomerLogin.jsp?errorMessage=" + errorMessage);
+			response.sendRedirect("CustomerLogin.jsp?message=" + errorMessage);
 		}
 	}
 }

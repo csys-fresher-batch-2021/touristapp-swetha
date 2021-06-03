@@ -16,10 +16,10 @@
 		
 		<form action=AdminLoginServlet method="get">
 			<label for="name">AdminName:</label> <input type="text"
-				name="adminname" id="adminname" autofocus ><br>
+				name="adminname" id="adminname" autofocus ><br/>
 			<label for="name">AdminPassword:</label> <input type="password"
-				name="adminpassword" id="adminpassword" ><br>
-				<br> 
+				name="adminpassword" id="adminpassword" ><br/>
+				<br/> 
 			<button class="btn btn-info">LOGIN</button>
 			<button class="btn btn-danger">RESET</button>
 	
@@ -39,5 +39,9 @@
 			}
          %>
 		</main>
+		<br/>
+		<li>Admin Name Password Hard Coded</li>
+		<li>Admin Name:admin</li>
+		<li>Admin Password:admin@123</li>
 </body>
 </html>

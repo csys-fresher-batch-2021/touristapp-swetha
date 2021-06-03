@@ -1,14 +1,13 @@
 package in.swetha.servlet;
 
-
 import java.io.IOException;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import in.swetha.service.TouristPlaceService;
 import in.swetha.validator.PlaceValidator;
@@ -28,28 +27,32 @@ public class AddTouristPlacesServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		/**
+		 * Servlet connection
+		 */
+
 		String touristPlace = request.getParameter("TouristPlace");
 		Double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
-		
+		String image = request.getParameter("photo");
+
 		try {
-			
+
 			PlaceValidator.touristPlaceValidator(touristPlace, "Invalid Input To Insert Place");
-			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount);
+			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount, image);
 
 			if (!isAdded)
 
 			{
 				response.sendRedirect("ListTouristPlaces.jsp");
-			} 
-			else {
-				String errorMessage="Invalid Place";
-				response.sendRedirect("addTouristPlace,jsp?errorMessage="+errorMessage);
+			} else {
+				String errorMessage = "Place Already Exits";
+				response.sendRedirect("addTouristPlace,jsp?errorMessage=" + errorMessage);
 			}
 		}
-		
-			 catch (Exception e) {
+
+		catch (Exception e) {
 			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
-			logger.info(e.getMessage());		}
+			logger.info(e.getMessage());
+		}
 	}
 }

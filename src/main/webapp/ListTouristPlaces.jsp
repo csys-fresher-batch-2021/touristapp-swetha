@@ -53,8 +53,7 @@ String loggedInUsername = (String)session.getAttribute("LOGGED_IN_USER");
 				%> 
 			</tbody>
 		</table>
-		
-			</main><% 
+		</main><% 
 	if(loggedInUsername!=null&&loggedInUsername.equalsIgnoreCase("ADMIN")){	%>
 <a href="addTouristPlace.jsp">Add Place</a>	
 <%} %>		
