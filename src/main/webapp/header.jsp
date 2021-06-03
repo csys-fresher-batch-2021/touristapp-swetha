@@ -51,8 +51,8 @@ String loggedInUsername = (String) session.getAttribute("LOGGED_IN_USER");
 					class="nav-link dropdown-toggle" href="#" id="dropdownId"
 					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
 					<div class="dropdown-menu" aria-labelledby="dropdownId">
-						<a class="dropdown-item" href="CustomerLogin.jsp">CustomerLogin</a>
-						<a class="dropdown-item" href="Login.jsp">AdminLogin</a>
+						<a class="dropdown-item" href="UserLogin.jsp">UserLogin</a>
+						<a class="dropdown-item" href="AdminLogin.jsp">AdminLogin</a>
 					</div>
 				<li class="nav-item"><a class="nav-link" href="Register.jsp">Register</a>
 				</li>

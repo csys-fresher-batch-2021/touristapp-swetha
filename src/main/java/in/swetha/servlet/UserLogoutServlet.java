@@ -19,7 +19,7 @@ public class UserLogoutServlet extends HttpServlet {
 			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.removeAttribute("LOGGED_IN_USER");
-		response.sendRedirect("CustomerLogin.jsp");
+		response.sendRedirect("UserLogin.jsp");
 
 	}
 }

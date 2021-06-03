@@ -10,7 +10,7 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3>LoginPage</h3>
+		<h3>User LoginPage</h3>
 
 
 		<form action=UserLoginServlet method="get">

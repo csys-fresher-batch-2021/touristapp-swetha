@@ -40,7 +40,7 @@ public class RegisterServlet extends HttpServlet {
 			boolean valid = UserService.adduserDetail(user);
 			if (valid) {
 				String message = "Registered SuccessFully";
-				response.sendRedirect("CustomerLogin.jsp?message=" + message);
+				response.sendRedirect("UserLogin.jsp?message=" + message);
 			} else {
 				String message = "Customer Details Already Exists";
 				response.sendRedirect("Register.jsp?message=" + message);

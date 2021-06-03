@@ -39,12 +39,12 @@ public class UserLoginServlet extends HttpServlet {
 
 			} else {
 				String errorMessage = "Invalid Credentials";
-				response.sendRedirect("CustomerLogin.jsp?message=" + errorMessage);
+				response.sendRedirect("UserLogin.jsp?message=" + errorMessage);
 			}
 		} catch (Exception e) {
 			logger.info(e.getMessage());
 			String errorMessage = e.getMessage();
-			response.sendRedirect("CustomerLogin.jsp?message=" + errorMessage);
+			response.sendRedirect("UserLogin.jsp?message=" + errorMessage);
 		}
 	}
 }

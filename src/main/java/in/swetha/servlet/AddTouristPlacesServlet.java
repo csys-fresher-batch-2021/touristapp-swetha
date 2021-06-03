@@ -46,12 +46,12 @@ public class AddTouristPlacesServlet extends HttpServlet {
 				response.sendRedirect("ListTouristPlaces.jsp");
 			} else {
 				String errorMessage = "Place Already Exits";
-				response.sendRedirect("addTouristPlace,jsp?errorMessage=" + errorMessage);
+				response.sendRedirect("AddTouristPlace,jsp?errorMessage=" + errorMessage);
 			}
 		}
 
 		catch (Exception e) {
-			response.sendRedirect("addTouristPlace.jsp?errorMessage=" + e.getMessage());
+			response.sendRedirect("AddTouristPlace.jsp?errorMessage=" + e.getMessage());
 			logger.info(e.getMessage());
 		}
 	}

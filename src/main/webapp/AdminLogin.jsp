@@ -11,7 +11,7 @@
 
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3>Login Page</h3>
+		<h3>Admin LoginPage</h3>
 		
 		
 		<form action=AdminLoginServlet method="get">
