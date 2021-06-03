@@ -27,7 +27,7 @@ public class BookingServlet extends HttpServlet {
 	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	
 		LocalDate fromDate = LocalDate.parse(request.getParameter("startDate"));
 		LocalDate toDate  = LocalDate.parse(request.getParameter("endDate"));
 		try {

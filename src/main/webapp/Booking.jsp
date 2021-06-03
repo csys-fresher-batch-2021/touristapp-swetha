@@ -9,7 +9,8 @@
 <body>
 <jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-<form action=BookingServlet><label for="startDate"><strong>Journey From date</strong></label><br>
+<form action=BookingServlet>
+<label for="startDate"><strong>Journey From date</strong></label><br>
 		<input type="date" name="startDate" placeholder="YYYY-MM-DD" required>
 		
 		<br>
@@ -21,6 +22,7 @@
 		<button class="btn btn-danger">Reset</button>
 	
 		</form>
+		
 		<%
           String message=request.getParameter("Booking Status");
 			if(message==null)

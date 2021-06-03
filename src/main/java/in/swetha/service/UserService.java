@@ -1,71 +1,35 @@
 package in.swetha.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
+import java.sql.SQLException;
+import java.util.Map;
 
-import in.swetha.exception.InValidDetailException;
+import in.swetha.dao.UserServiceDAO;
+import in.swetha.exception.DBException;
 import in.swetha.model.User;
-import in.swetha.validator.UserServiceValidator;
 
 public class UserService {
-	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
-	private UserService(){
-	}
-	
-	private static List<User> userDetailsList = new ArrayList<>();
-
-	public static List<User> adduser(User user) {
-
-		userDetailsList.add(user);
-		return userDetailsList;
+	private UserService() {
 	}
 
-	/**
-	 * 
-	 * @param user
-	 * @return
-	 * @throws InValidDetailException
-	 */
-	public static boolean validLogin(User user) throws InValidDetailException {
+	private static UserServiceDAO userDetail = new UserServiceDAO();
 
-		boolean validLogIn = false;
-		try {
-			for (User userList : userDetailsList)
-				if (userList.getUserName().equalsIgnoreCase(user.getUserName())
-						&& userList.getUserPassWord().equalsIgnoreCase(user.getUserPassWord())) {
-					validLogIn = true;
-				}
-
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			throw new InValidDetailException("Unable To Login");
+	public static boolean adduserDetail(User user) throws SQLException, DBException {
+		boolean valid = false;
+		if (userDetail.userRegister(user)) {
+			valid = true;
 		}
-		return validLogIn;
-
+		return valid;
 	}
 
-	/**
-	 * 
-	 * @param user
-	 * @return
-	 * @throws InValidDetailException
-	 */
-	public static boolean validRegister(User user) throws InValidDetailException {
-		boolean validRegister = false;
-		try {
-			if (UserServiceValidator.isValidRegistration(user))
+	public static boolean validUserLogin(String userName, String userPassword) throws DBException, SQLException {
+		boolean isValid = false;
+		Map<String, String> userCheck = userDetail.userLogin(userName, userPassword);
 
-			{
+		if (userCheck.containsKey(userName) && userPassword.equals(userCheck.get(userName))) {
 
-				validRegister = true;
-			}
-		} catch (Exception e) {
-			logger.info(e.getMessage());
-			throw new InValidDetailException("Register Invalid Credential");
+			isValid = true;
 		}
 
-		return validRegister;
+		return isValid;
 	}
-
 }
