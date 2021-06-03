@@ -17,7 +17,7 @@ public class ConnectionUtil {
 		String driverClass =System.getenv("spring.datasource.driver-class-name");
 		String url =System.getenv("spring.datasource.url");
 		String username =System.getenv("spring.datasource.username");
-		String password ="Welcome@123";
+		String password =System.getenv("spring.datasource.password");
 		try {
 			Class.forName(driverClass);
 			connection = DriverManager.getConnection(url, username, password);

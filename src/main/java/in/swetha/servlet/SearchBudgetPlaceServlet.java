@@ -31,7 +31,7 @@ public class SearchBudgetPlaceServlet extends HttpServlet {
 			response.sendRedirect("SearchBudgetList.jsp"); 
 		}else
 		{
-			response.sendRedirect("SearchBudgetList.jsp"); 
+			response.sendRedirect("SearchBudgetPlace.jsp"); 
 		}
 		
 		

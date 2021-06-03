@@ -28,9 +28,9 @@ public class RegisterServlet extends HttpServlet {
 
 		
 		try {
-			// getting names,paasword,mobilenumber to register
+			
 			String userName = request.getParameter("username");
-			String password = request.getParameter("password");
+			String password = request.getParameter("password");// getting names,password,mobilenumber to register
 			long mobileNo = Long.parseLong(request.getParameter("mobilenumber"));
 			UserValidator.isValidUserName(userName);
 			UserValidator.isValidPassword(password);
