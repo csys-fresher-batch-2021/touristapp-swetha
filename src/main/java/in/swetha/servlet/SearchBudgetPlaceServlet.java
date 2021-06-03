@@ -37,7 +37,7 @@ public class SearchBudgetPlaceServlet extends HttpServlet {
 		
 	}catch(Exception e)
 		{
-		response.sendRedirect("SearchBudgetList.jsp"); 
+		response.sendRedirect("SearchBudgetPlace.jsp"); 
 		}
 }
 }

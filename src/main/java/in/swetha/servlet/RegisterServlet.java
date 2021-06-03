@@ -1,7 +1,7 @@
 package in.swetha.servlet;
 
 import java.io.IOException;
-import java.util.logging.Logger;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +18,7 @@ import in.swetha.validator.UserValidator;
  */
 @WebServlet("/RegisterServlet")
 public class RegisterServlet extends HttpServlet {
-	private static final Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -46,8 +46,6 @@ public class RegisterServlet extends HttpServlet {
 				response.sendRedirect("Register.jsp?message=" + message);
 			}
 		} catch (Exception e) {
-			logger.info(e.getMessage());
-			String message = e.getMessage();
 			response.sendRedirect("Register.jsp?message=" + e.getMessage());
 
 		}
