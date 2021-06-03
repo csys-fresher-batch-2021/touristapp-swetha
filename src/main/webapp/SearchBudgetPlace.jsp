@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>

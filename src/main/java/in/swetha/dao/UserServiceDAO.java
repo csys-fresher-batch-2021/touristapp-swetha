@@ -1,4 +1,4 @@
-package in.swetha.DAO;
+package in.swetha.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

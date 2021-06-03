@@ -40,8 +40,9 @@
          %>
 		</main>
 		<br/>
+		<ul>
 		<li>Admin Name Password Hard Coded</li>
 		<li>Admin Name:admin</li>
-		<li>Admin Password:admin@123</li>
+		<li>Admin Password:admin@123</li></ul>
 </body>
 </html>

@@ -26,12 +26,12 @@ public class RegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// getting names,paasword,mobilenumber to register
-		String userName = request.getParameter("username");
-		String password = request.getParameter("password");
-		long mobileNo = Long.parseLong(request.getParameter("mobilenumber"));
+		
 		try {
-
+			// getting names,paasword,mobilenumber to register
+			String userName = request.getParameter("username");
+			String password = request.getParameter("password");
+			long mobileNo = Long.parseLong(request.getParameter("mobilenumber"));
 			UserValidator.isValidUserName(userName);
 			UserValidator.isValidPassword(password);
 			UserValidator.isValidMobileNumber(mobileNo);

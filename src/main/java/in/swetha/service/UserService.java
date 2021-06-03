@@ -2,7 +2,8 @@ package in.swetha.service;
 
 import java.sql.SQLException;
 import java.util.Map;
-import in.swetha.DAO.UserServiceDAO;
+
+import in.swetha.dao.UserServiceDAO;
 import in.swetha.exception.DBException;
 import in.swetha.model.User;
 

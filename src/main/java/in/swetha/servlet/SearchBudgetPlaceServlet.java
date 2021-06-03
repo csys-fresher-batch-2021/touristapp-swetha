@@ -19,10 +19,10 @@ import in.swetha.service.TouristPlaceService;
 public class SearchBudgetPlaceServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-   
+   @Override
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		try {
 		double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
 		
 		List<Tourist> isBudjet=TouristPlaceService.searchPlace(packageAmount);
@@ -31,9 +31,13 @@ public class SearchBudgetPlaceServlet extends HttpServlet {
 			response.sendRedirect("SearchBudgetList.jsp"); 
 		}else
 		{
-			System.out.println("No Record");
+			response.sendRedirect("SearchBudgetList.jsp"); 
 		}
 		
 		
-	}
+	}catch(Exception e)
+		{
+		response.sendRedirect("SearchBudgetList.jsp"); 
+		}
+}
 }

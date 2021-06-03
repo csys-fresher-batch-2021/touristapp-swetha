@@ -17,9 +17,8 @@ public class ConnectionUtil {
 		String driverClass =System.getenv("spring.datasource.driver-class-name");
 		String url =System.getenv("spring.datasource.url");
 		String username =System.getenv("spring.datasource.username");
-		String password ="Welcome@123";//System.getenv("spring.datasource.password");
+		String password ="Welcome@123";
 		try {
-			System.out.println(username  +"-" + password + "-" + url);
 			Class.forName(driverClass);
 			connection = DriverManager.getConnection(url, username, password);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -46,7 +45,7 @@ public class ConnectionUtil {
 			throw new DBException("Unable to close");
 		}
 	}
-public static void main(String args[]) throws DBException
+public static void main(String[] args) throws DBException
 {
 	try {
 		ConnectionUtil.getConnection();
