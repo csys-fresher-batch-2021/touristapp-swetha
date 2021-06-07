@@ -16,26 +16,25 @@ public class Tourist {
 		return imageURL;
 	}
 
-	/*
-	 * public void setImageURL(String imageURL) { this.imageURL = imageURL; }
-	 */
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
 
 	public String getTouristPlace() {
 		return touristPlace;
 	}
 
-	/*
-	 * public void setTouristPlace(String touristPlace) { this.touristPlace =
-	 * touristPlace; }
-	 */
+	public void setTouristPlace(String touristPlace) {
+		this.touristPlace = touristPlace;
+	}
 
 	public double getAmount() {
 		return amount;
 	}
 
-	/*
-	 * public void setAmount(double amount) { this.amount = amount; }
-	 */
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 
 	@Override
 	public String toString() {

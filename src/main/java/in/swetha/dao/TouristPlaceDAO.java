@@ -11,11 +11,11 @@ import in.swetha.model.Tourist;
 import in.swetha.util.ConnectionUtil;
 
 public class TouristPlaceDAO {
-	private static  List<Tourist> placeDetail; 
-	
-	private static final List<Tourist> placeSearch= new ArrayList<>();
+	private static List<Tourist> placeDetail = null;
 
-	public boolean save(Tourist tour) throws ClassNotFoundException, SQLException, DBException {
+	private static final List<Tourist> placeSearch = new ArrayList<>();
+
+	public boolean save(Tourist tour) throws SQLException, DBException {
 		boolean isValid = false;
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -37,7 +37,7 @@ public class TouristPlaceDAO {
 		return isValid;
 	}
 
-	public List<Tourist> allTouristPlace() throws DBException, ClassNotFoundException, SQLException {
+	public List<Tourist> allTouristPlace() throws DBException, SQLException {
 		placeDetail = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement pst = null;
@@ -68,7 +68,7 @@ public class TouristPlaceDAO {
 	}
 
 	public List<Tourist> deleteTouristPlace(String touristplace) throws DBException, SQLException {
-		//List<Tourist> placeDetail = new ArrayList<>();
+
 		Connection connection = null;
 		PreparedStatement pst = null;
 
@@ -84,7 +84,7 @@ public class TouristPlaceDAO {
 
 			placeDetail.clear();
 			allTouristPlace();
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.getMessage();
 		}
 
@@ -125,6 +125,4 @@ public class TouristPlaceDAO {
 		return placeSearch;
 	}
 
-	
-	
 }

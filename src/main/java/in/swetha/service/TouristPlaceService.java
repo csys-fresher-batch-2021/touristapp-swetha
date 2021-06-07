@@ -20,17 +20,18 @@ public class TouristPlaceService {
 		Tourist place = new Tourist(touristplace, touristamount, imageURL);
 		boolean valid = placeDao.save(place);
 		if (valid) {
-
+		
 		}
 
 		return valid;
 	}
 
+
 	public static List<Tourist> displayTouristPlace() throws ClassNotFoundException, DBException, SQLException {
 
-		List<Tourist> place = placeDao.allTouristPlace();
+		return placeDao.allTouristPlace();
 
-		return place;
+		 
 	}
 
 	public static List<Tourist> deletePlace(String touristPlace) throws DBException, SQLException {
