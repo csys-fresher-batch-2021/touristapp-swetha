@@ -1,2 +1,9 @@
 create table user_detail(user_name varchar(100) NOT null,
 user_password varchar(100) NOT null,user_mobilenumber bigint NOT NULL unique);
+
+
+
+
+create table touristplace_detail(tourist_place varchar(100) NOT null unique,
+tourist_amount int NOT null,
+tourist_image varchar(300)NOT null);

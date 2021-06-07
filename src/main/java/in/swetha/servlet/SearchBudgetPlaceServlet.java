@@ -1,15 +1,13 @@
 package in.swetha.servlet;
 
 import java.io.IOException;
-import java.util.List;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import in.swetha.model.Tourist;
 import in.swetha.service.TouristPlaceService;
 
 /**
@@ -24,9 +22,8 @@ public class SearchBudgetPlaceServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 		double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
-		
-		List<Tourist> isBudjet=TouristPlaceService.searchPlace(packageAmount);
-		if(isBudjet != null)
+		boolean isBudjet=TouristPlaceService.searchBudgetTouristPlace(packageAmount);
+		if(isBudjet)
 		{
 			response.sendRedirect("SearchBudgetList.jsp"); 
 		}else
