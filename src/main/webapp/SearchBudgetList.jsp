@@ -35,8 +35,8 @@
 				<tr>
 					<td><%=i%></td>
 					<td>
-					<img src="assets/img/<%=touristPlaces.getImageURL()%>" width="100" height="100">
-					
+					<img src="assets/img/<%=touristPlaces.getImageURL()%>" 
+					 alt="places" width="100" height="100">
 					</td>
 					<td><%=touristPlaces.getTouristPlace()%></td>
 					<td>Rs.<%=touristPlaces.getAmount()%></td>

@@ -8,43 +8,32 @@ import in.swetha.model.Tourist;
 
 public class TouristPlaceService {
 
-	public TouristPlaceService() {
+	private TouristPlaceService() {
 		// Default Constructor
 
 	}
 
 	private static TouristPlaceDAO placeDao = new TouristPlaceDAO();
 
-	public static boolean addTouristPlace(String touristplace, double touristamount, String imageURL)
-			throws ClassNotFoundException, SQLException, DBException {
-		Tourist place = new Tourist(touristplace, touristamount, imageURL);
+	public static boolean addTouristPlace(String touristPlace, Double touristAmount, String imageURL)
+			throws SQLException, DBException {
+		Tourist place = new Tourist(touristPlace, touristAmount, imageURL);
 		boolean valid = placeDao.save(place);
-		if (valid) {
-		
-		}
-
 		return valid;
 	}
 
-
 	public static List<Tourist> displayTouristPlace() throws ClassNotFoundException, DBException, SQLException {
-
 		return placeDao.allTouristPlace();
-
-		 
 	}
 
 	public static List<Tourist> deletePlace(String touristPlace) throws DBException, SQLException {
-
 		return (placeDao.deleteTouristPlace(touristPlace));
-
 	}
 
-	public static boolean searchBudgetTouristPlace(double touristamount) {
+	public static boolean searchBudgetTouristPlace(Double touristAmount) {
 		boolean isSearch = true;
-
 		try {
-			placeDao.searchBudgetPlace(touristamount);
+			placeDao.searchBudgetPlace(touristAmount);
 		} catch (DBException | SQLException e) {
 			e.getMessage();
 			isSearch = false;
@@ -55,5 +44,4 @@ public class TouristPlaceService {
 	public List<Tourist> displaySearchTouristPlace() {
 		return (placeDao.getSearchTouristPlace());
 	}
-
 }

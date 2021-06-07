@@ -16,18 +16,15 @@ String loggedInUsername = (String) session.getAttribute("LOGGED_IN_USER");
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-	<%
-          String message=request.getParameter("message");
-			if(message==null)
-			{
-				out.print("");
-			}
-			else
-			{
-				
-				out.print("<font color='red'>"+message+"</font>");
-			}
-         %>
+
+		<%
+		String message = request.getParameter("message");
+		if (message != null) {
+		%>
+		<p class="text-danger"><%=message%></p>
+		<%
+		}
+		%>
 		<h3>Tourist Package</h3>
 		<table class="table table-bordered">
 			<caption>*Package include Room</caption>
@@ -51,7 +48,7 @@ String loggedInUsername = (String) session.getAttribute("LOGGED_IN_USER");
 				<tr>
 					<td><%=i%></td>
 					<td><img src="assets/img/<%=touristPlaces.getImageURL()%>"
-						width="100" height="100"></td>
+					alt="places" 	width="100" height="100"></td>
 					<td><%=touristPlaces.getTouristPlace()%></td>
 					<td>Rs.<%=touristPlaces.getAmount()%></td>
 					<td><a
@@ -70,7 +67,7 @@ String loggedInUsername = (String) session.getAttribute("LOGGED_IN_USER");
 
 			</tbody>
 		</table>
-		
+
 	</main>
 	<%
 	if (loggedInUsername != null && loggedInUsername.equalsIgnoreCase("ADMIN")) {

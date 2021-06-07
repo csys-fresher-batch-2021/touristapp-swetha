@@ -21,7 +21,7 @@ public class SearchBudgetPlaceServlet extends HttpServlet {
   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
+		Double packageAmount = Double.parseDouble(request.getParameter("PackageAmount"));
 		boolean isBudjet=TouristPlaceService.searchBudgetTouristPlace(packageAmount);
 		if(isBudjet)
 		{

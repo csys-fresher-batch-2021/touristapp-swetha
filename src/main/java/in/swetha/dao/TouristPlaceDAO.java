@@ -11,10 +11,8 @@ import in.swetha.model.Tourist;
 import in.swetha.util.ConnectionUtil;
 
 public class TouristPlaceDAO {
-	private static List<Tourist> placeDetail = null;
-
-	private static final List<Tourist> placeSearch = new ArrayList<>();
-
+	private static  List<Tourist> placeSearch;
+	private static List<Tourist> placeDetail;
 	public boolean save(Tourist tour) throws SQLException, DBException {
 		boolean isValid = false;
 		Connection connection = null;
@@ -31,7 +29,6 @@ public class TouristPlaceDAO {
 			isValid = true;
 			e.getMessage();
 		} finally {
-
 			ConnectionUtil.close(connection, pst);
 		}
 		return isValid;
@@ -43,76 +40,62 @@ public class TouristPlaceDAO {
 		PreparedStatement pst = null;
 		try {
 			connection = ConnectionUtil.getConnection();
-
 			String sql = "select * from touristplace_detail where active_status=1";
-
 			pst = connection.prepareStatement(sql);
-
 			ResultSet rs = pst.executeQuery();
-
 			while (rs.next()) {
-				String touristplace = rs.getString("tourist_place");
-				Double touirstamount = rs.getDouble("tourist_amount");
-				String touristimage = rs.getString("tourist_image");
-				Tourist tour = new Tourist(touristplace, touirstamount, touristimage);
+				String place = rs.getString("tourist_place");
+				Double amount = rs.getDouble("tourist_amount");
+				String image = rs.getString("tourist_image");
+				Tourist tour = new Tourist(place, amount, image);
 				placeDetail.add(tour);
-
 			}
 		} catch (SQLException e) {
 			e.getMessage();
 		} finally {
-
 			ConnectionUtil.close(connection, pst);
 		}
 		return placeDetail;
 	}
 
-	public List<Tourist> deleteTouristPlace(String touristplace) throws DBException, SQLException {
-
+	public List<Tourist> deleteTouristPlace(String touristPlace) throws DBException, SQLException {
+		
 		Connection connection = null;
 		PreparedStatement pst = null;
-
 		try {
-
 			connection = ConnectionUtil.getConnection();
 			String sql = "update touristplace_detail set active_status=0 where tourist_place=?";
-
 			pst = connection.prepareStatement(sql);
-			String place = touristplace;
+			String place = touristPlace;
 			pst.setString(1, place);
 			pst.executeUpdate();
-
 			placeDetail.clear();
 			allTouristPlace();
 		} catch (SQLException e) {
 			e.getMessage();
+		} finally {
+			ConnectionUtil.close(connection, pst);
 		}
-
-		ConnectionUtil.close(connection, pst);
 		return placeDetail;
-
 	}
 
-	public List<Tourist> searchBudgetPlace(double touristAmount) throws SQLException, DBException {
+	public List<Tourist> searchBudgetPlace(Double touristAmount) throws SQLException, DBException {
+		placeSearch = new ArrayList<>();
 		Connection connection = null;
 		PreparedStatement pst = null;
-
 		try {
-
 			connection = ConnectionUtil.getConnection();
 			String sql = "select * from touristplace_detail where tourist_amount <= ? ";
 			pst = connection.prepareStatement(sql);
 			pst.setDouble(1, touristAmount);
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
-				String touristplace = rs.getString("tourist_place");
-				Double touirstamount = rs.getDouble("tourist_amount");
-				String touristimage = rs.getString("tourist_image");
-				Tourist tourist = new Tourist(touristplace, touirstamount, touristimage);
+				String place = rs.getString("tourist_place");
+				Double amount = rs.getDouble("tourist_amount");
+				String image = rs.getString("tourist_image");
+				Tourist tourist = new Tourist(place, amount, image);
 				placeSearch.add(tourist);
-
 			}
-
 		} catch (SQLException e) {
 			e.getMessage();
 		} finally {
@@ -122,7 +105,7 @@ public class TouristPlaceDAO {
 	}
 
 	public List<Tourist> getSearchTouristPlace() {
+		
 		return placeSearch;
 	}
-
 }

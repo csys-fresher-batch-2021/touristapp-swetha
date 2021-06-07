@@ -2,10 +2,10 @@ package in.swetha.model;
 
 public class Tourist {
 	private String touristPlace;
-	private double amount;
+	private Double amount;
 	private String imageURL;
 
-	public Tourist(String touristPlace, double amount, String imageURL) {
+	public Tourist(String touristPlace, Double amount, String imageURL) {
 		super();
 		this.touristPlace = touristPlace;
 		this.amount = amount;
@@ -28,11 +28,11 @@ public class Tourist {
 		this.touristPlace = touristPlace;
 	}
 
-	public double getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
