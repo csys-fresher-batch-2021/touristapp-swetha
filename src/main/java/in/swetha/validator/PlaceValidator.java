@@ -12,7 +12,7 @@ public class PlaceValidator {
 	public static boolean touristPlaceValidator(String place, String errorMessage) 
 			throws IsValidPlaceException
 	{
-		if(place==null||place.trim().length()<=3)
+		if(place==null||place.trim().length()<=2)
 		{
 			throw new IsValidPlaceException(errorMessage);
 		}

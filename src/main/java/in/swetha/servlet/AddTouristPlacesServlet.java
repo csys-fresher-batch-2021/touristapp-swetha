@@ -38,7 +38,7 @@ public class AddTouristPlacesServlet extends HttpServlet {
 		try {
 
 			PlaceValidator.touristPlaceValidator(touristPlace, "Invalid Input To Insert Place");
-			boolean isAdded = TouristPlaceService.addTouristPlace(touristPlace, packageAmount, image);
+			boolean isAdded =TouristPlaceService.addTouristPlace(touristPlace, packageAmount, image);
 
 			if (!isAdded)
 
@@ -46,7 +46,7 @@ public class AddTouristPlacesServlet extends HttpServlet {
 				response.sendRedirect("ListTouristPlaces.jsp");
 			} else {
 				String errorMessage = "Place Already Exits";
-				response.sendRedirect("AddTouristPlace,jsp?errorMessage=" + errorMessage);
+				response.sendRedirect("AddTouristPlace.jsp?errorMessage=" + errorMessage);
 			}
 		}
 
@@ -55,4 +55,5 @@ public class AddTouristPlacesServlet extends HttpServlet {
 			logger.info(e.getMessage());
 		}
 	}
+	
 }

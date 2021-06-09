@@ -32,9 +32,8 @@ public class UserServiceDAO {
 			pst.setString(2, userDetail.getUserPassWord());
 			pst.setLong(3, userDetail.getUserMobileNumber());
 			pst.executeUpdate();
-		
-		} catch (Exception e) {
-
+		} 
+		catch (Exception e) {
 			isValid = false;
 			e.getMessage();
 		} finally {
@@ -50,27 +49,21 @@ public class UserServiceDAO {
  * @throws DBException
  * @throws SQLException
  */
-	public Map<String, String> userLogin(String userName, String userPassWord) throws DBException, SQLException {
-
+	public Map<String, String> userLogin(String userName, String userPassWord) 
+			throws DBException, SQLException {
 		Connection connection = null;
 		PreparedStatement pst = null;
 		try {
-			
 			connection = ConnectionUtil.getConnection();
 			String sql = "select * from user_detail where user_name=? and user_password=?";
 			pst = connection.prepareStatement(sql);
 			pst.setString(1, userName);
 			pst.setString(2, userPassWord);
-
 			ResultSet rs = pst.executeQuery();
-			
-
 			while (rs.next()) {
-
-				String username = rs.getString("user_name");
-				String userpassword = rs.getString("user_password");
-				userDetails.put(username, userpassword);
-				
+				String name = rs.getString("user_name");
+				String password = rs.getString("user_password");
+				userDetails.put(name, password);
 			}
 		} catch (SQLException e) {
 			e.getMessage();
@@ -79,7 +72,6 @@ public class UserServiceDAO {
 		}
 		return userDetails;
 	}
-
 	public Map<String, String> getAllUserDetails() {
 		return userDetails;
 	}
